@@ -9,13 +9,13 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: './',
+    assetsPublicPath: '/',
     proxyTable: {
       '/api': {  //使用"/api"来代替"http://f.apiplus.c"
-        target: 'http://mtest.youjiankang.net:8081', //源地址
+        target: 'http://test.youjiankang.top:8081', //源地址
         changeOrigin: true, //改变源
         pathRewrite: {
-          '^/api': 'http://mtest.youjiankang.net:8081' //路径重写
+          '^/api': 'http://test.youjiankang.top:8081' //路径重写
         }
       }
     },
