@@ -9,7 +9,7 @@
         <span class="h">{{deepSleepDuration}}</span>
       </p>
       <p style="text-align: center; margin-top: 6px">
-        <span class="regular">{{ sleepStatus?'正常':'不正常' }}</span>
+        <span class="regular">{{ sleepStatus==0?'偏低':sleepStatus==1?'正常':'偏高' }}</span>
       </p>
       <!--      <p class="header_bottom">-->
       <!--        <span style="color:#333; font-size: 16px; float:left">白天小睡</span>-->
@@ -69,7 +69,7 @@ export default {
     return {
       title: '深睡比例',
       refValue:'',
-      sleepStatus:'',
+      sleepStatus:0,
       deepSleepDuration:'',
 
     }
@@ -79,6 +79,7 @@ export default {
       const  {refValue,sleepStatus,deepSleepDuration} = this.$route.params;
       this.refValue =refValue;
       this.sleepStatus = sleepStatus;
+      console.log(333,sleepStatus);
       this.deepSleepDuration = deepSleepDuration;
     })
   },

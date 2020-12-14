@@ -22,8 +22,8 @@
         <div class="block">
           <span class="sleep_effect">深睡时长</span>
           <p class="sleep_rate">
-            <span  style="color: #333;font-size: 34px; ">{{deepSleep}}</span>
-            <span style="font-size: 19px;color: #333;">min</span>
+            <span  style="color: #333;font-size: 34px; ">{{deepSleepDuration}}</span>
+            <span style="font-size: 19px;color: #333;">h</span>
           </p>
           <ul  class="square" >
             <li></li>
@@ -50,7 +50,7 @@
         <div class="block">
           <span class="sleep_effect">入睡用时</span>
           <p class="sleep_rate">
-            <span  style="color: #333;font-size: 34px; ">{{ fallSleep }}</span>
+            <span  style="color: #333;font-size: 34px; ">{{ fallSleepDuration }}</span>
             <span style="font-size: 19px;color: #333;">min</span>
           </p>
           <ul  class="square" >
@@ -64,8 +64,7 @@
         <div class="block">
           <span class="sleep_effect">睡眠感受</span>
           <p class="sleep_rate">
-            <span  style="color: #333;font-size: 34px; ">{{ feel }}</span>
-<!--            <span style="font-size: 19px;color: #333;">%</span>-->
+<!--            <span  style="color: #333;font-size: 34px; ">{{ feel }}</span>-->
           </p>
           <ul  class="_square"  >
             <li></li>
@@ -78,8 +77,8 @@
         <div class="block">
           <span class="sleep_effect">睡眠总时长</span>
           <p class="sleep_rate">
-            <span  style="color: #333;font-size: 34px; ">5.6</span>
-            <span style="font-size: 19px;color: #333;">hrs</span>
+            <span  style="color: #333;font-size: 34px; ">{{sleepTotalDuration}}</span>
+            <span style="font-size: 19px;color: #333;">h</span>
           </p>
           <ul  class="_square" >
             <li></li>
@@ -130,39 +129,25 @@ export default {
   data() {
     return {
       title: '睡眠总时长',
-      dateTime:'',
-      sleepType:0,
-      deepSleep:'',
-      fallSleep:'',
-      fallSleepTotalDuration:'',
-      wakeTimes:'',
-      feel:'非常好',
-      sleepEffect:'',
-
-
+      sleepEffect:0,
+      deepSleepDuration:0,
+      wakeTimes:0,
+      feel:'',
+      fallSleepDuration:0,
+      sleepTotalDuration:0,
     }
   },
   created() {
     this.$nextTick(()=>{
-      const  {token,sleepType,dateTime} = this.$route.params;
-      setLocal('token',token?token:'');
-      this.initData({sleepType,dateTime});
+      const  {sleepEffect,deepSleepDuration,wakeTimes,feel,fallSleepDuration,sleepTotalDuration} = this.$route.params;
+      this.sleepEffect =sleepEffect;
+      this.deepSleepDuration = deepSleepDuration;
+      this.wakeTimes = wakeTimes;
+      this.feel = feel;
     })
   },
   methods:{
-    async initData(params){
-      const res = await  getSleepTotalDetail(params)
-      if(res.code===200){
-        const {deepsleep,fallsleep,sleepefficiency,fallsleepduration,wakes,feel} = res. data;
-        this.deepSleep = deepsleep;
-        this.fallSleep = fallsleep;
-        this.fallSleepTotalDuration = fallsleepduration;
-        this.wakeTimes = wakes;
-        this.feel = feel;
-        this.sleepEffect = sleepefficiency;
-      }
-      console.log(333,res);
-    }
+
   }
 }
 </script>

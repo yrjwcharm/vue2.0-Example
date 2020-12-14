@@ -8,15 +8,16 @@
  */
 import request from "../utils/NetUtils";
 
+let serverUrl = '/api';
 
 export function getDaySleep(params) {
-  return request.get('/api/monitor/sleepReferenceResource/getListByType', params);
+  return request.get(`${serverUrl}/monitor/sleepReferenceResource/getListByType`, params);
 }
 export  function  getDayNightSleep(params){
-  return request.get('/api/monitor/sleepReferenceResource/getListByType', params);
+  return request.get(`${serverUrl}/monitor/sleepReferenceResource/getListByType`, params);
 }
 export  function  getSleepTotalDetail(params){
-  return request.get('/api/monitor/health/sleep/SySleepLog/getSleepSumDetails', params);
+  return request.get(`${serverUrl}/monitor/health/sleep/SySleepLog/getSleepSumDetails`, params);
 }
 
 
