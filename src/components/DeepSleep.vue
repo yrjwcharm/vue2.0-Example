@@ -3,7 +3,7 @@
     <!--    <Title :title="title" />-->
     <div style="  background-color: #fff; margin-top: 2px; padding-bottom: 18px;">
       <p style="text-align: center ;padding-top: 18px;">
-        <span class="refer">参考值: {{refValue}}</span>
+        <span class="refer">参考值: {{refValue}}%</span>
       </p>
       <p style="text-align: center ; margin-top: 10px;">
         <span class="h">{{deepSleepDuration}}</span>
@@ -16,7 +16,7 @@
       <!--        <span style="color:#333; font-size: 16px; float:right">12:00-13:00</span>-->
       <!--      </p>-->
     </div>
-    <div style="margin-top: 2px;padding-right: 40px;padding-left: 40px; background-color: #fff ;padding-top: 20px;">
+    <div style="margin-top: 2px;padding-right: 20px;padding-left: 20px; background-color: #fff ;padding-top: 20px;">
       <div>
         <p style="color: #333;font-size: 14px;">1.什么是深睡眠?</p>
         <p style=" margin-top: 12px; color:#999;text-align: justify;text-justify:inter-ideograph;font-size: 13px;line-height: 23px; ">

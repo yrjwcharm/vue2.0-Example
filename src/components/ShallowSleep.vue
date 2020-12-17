@@ -3,20 +3,20 @@
     <!--    <Title :title="title" />-->
     <div style="  background-color: #fff; margin-top: 2px; padding-bottom: 18px;">
       <p style="text-align: center ;padding-top: 18px;">
-        <span class="refer">参考值: {{refValue}}</span>
+        <span class="refer">参考值:<50%</span>
       </p>
       <p style="text-align: center ; margin-top: 10px;">
         <span class="h">{{shallowSleepDuration}}</span>
       </p>
       <p style="text-align: center; margin-top: 6px">
-        <span class="regular">{{ sleepStatus==0?'偏低':sleepStatus==1?'正常':'偏高' }}</span>
+        <span class="regular">{{sleepStatus==0?'偏低':sleepStatus==1?'正常':'偏高' }}</span>
       </p>
       <!--      <p class="header_bottom">-->
       <!--        <span style="color:#333; font-size: 16px; float:left">白天小睡</span>-->
       <!--        <span style="color:#333; font-size: 16px; float:right">12:00-13:00</span>-->
       <!--      </p>-->
     </div>
-    <div style="margin-top: 2px;padding-right: 40px;padding-left: 40px; background-color: #fff ;padding-top: 20px;">
+    <div style="margin-top: 2px;padding-right: 20px;padding-left: 20px; background-color: #fff ;padding-top: 20px;">
       <div>
         <p style="color: #333;font-size: 14px;">1.什么是浅睡眠?</p>
         <p style=" margin-top: 12px; color:#999;text-align: justify;text-justify:inter-ideograph;font-size: 13px;line-height: 23px; ">
@@ -57,9 +57,6 @@
 
 <script>
 import Title from './Title'
-import {getDayNightSleep} from "../service/api";
-import {setLocal} from "../common/js/utils";
-import {Toast} from 'vant';
 export default {
   name: 'Sleep',
   components: {
@@ -68,7 +65,6 @@ export default {
   data () {
     return {
       title: '浅睡比例',
-      refValue:'',
       sleepStatus:0,
       shallowSleepDuration:'',
 
@@ -77,7 +73,6 @@ export default {
   created() {
     this.$nextTick( ()=>{
       const  {refValue,sleepStatus,shallowSleepDuration} = this.$route.params;
-      this.refValue =refValue;
       this.sleepStatus = sleepStatus;
       this.shallowSleepDuration = shallowSleepDuration;
     })

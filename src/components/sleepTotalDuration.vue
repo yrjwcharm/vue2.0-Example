@@ -120,8 +120,8 @@ export default {
 
 .desc {
   margin-top: 10px;
-  padding-right: 40px;
-  padding-left: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
   background-color: #fff;
   padding-top: 20px;
 }

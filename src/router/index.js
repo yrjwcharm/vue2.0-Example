@@ -21,7 +21,7 @@ export default new Router({
       component: DeepSleep
     },
     {
-      path: '/shallowSleep/:refValue/:shallowSleepDuration/:sleepStatus',
+      path: '/shallowSleep/:shallowSleepDuration/:sleepStatus',
       name: 'ShallowSleep',
       component: ShallowSleep
     },
@@ -45,12 +45,12 @@ export default new Router({
       component: BreathQuality
     },
     {
-      path: '/daySleep/:refValue/:daySleepDuration/:sleepStatus',
+      path: '/daySleep/:refValue/:hour/:minutes/:sleepStatus',
       name: 'DaySleep',
       component: DayComponent
     },
     {
-      path: '/dayNight/:refValue/:sleepDuration/:sleepStatus',
+      path: '/dayNight/:refValue/:hour/:minute/:sleepStatus',
       name: 'DayNight',
       component: DayNightSleepComponent
     },

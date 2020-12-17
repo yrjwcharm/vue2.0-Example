@@ -3,21 +3,23 @@
 <!--    <Title :title="title" />-->
     <div style="  background-color: #fff; margin-top: 2px; padding-bottom: 18px;">
       <p style="text-align: center ;padding-top: 18px;">
-        <span class="refer">参考值：{{refValue}}}小时</span>
+        <span class="refer">参考值：{{refValue}}小时</span>
       </p>
       <p style="text-align: center ; margin-top: 10px;">
-        <span class="h">{{sleepDuration}}</span>
+        <span class="h">{{hour}}</span>
         <span class="time" style="margin-right: 5px">小时</span>
+        <span class="h">{{minute}}</span>
+        <span class="time" style="margin-right: 5px">分钟</span>
       </p>
       <p style="text-align: center; margin-top: 6px">
-        <span class="regular">{{ sleepStatus }}</span>
+        <span class="regular">{{sleepStatus==0?'偏低':sleepStatus==1?'正常':'偏高' }}</span>
       </p>
       <!--      <p class="header_bottom">-->
       <!--        <span style="color:#333; font-size: 16px; float:left">白天小睡</span>-->
       <!--        <span style="color:#333; font-size: 16px; float:right">12:00-13:00</span>-->
       <!--      </p>-->
     </div>
-    <div style="margin-top: 2px;padding-right: 40px;padding-left: 40px; background-color: #fff ;padding-top: 20px;">
+    <div style="margin-top: 2px;padding-right: 20px;padding-left: 20px; background-color: #fff ;padding-top: 20px;">
       <div>
         <p style="color: #333;font-size: 14px;">1.夜间睡眠时长标准</p>
         <p style=" margin-top: 12px; color:#999;text-align: justify;text-justify:inter-ideograph;font-size: 13px;line-height: 23px; ">
@@ -56,13 +58,16 @@ export default {
        refValue:'',
        sleepStatus:0,
        sleepDuration:'',
+       hour :0,
+       minute:0,
     }
   },
   created() {
-      const  {refValue,sleepDuration,sleepStatus} = this.$route.params;
+      const  {refValue,hour,minute,sleepStatus} = this.$route.params;
             this.refValue = refValue;
             this.sleepStatus = sleepStatus;
-            this.sleepDuration = sleepDuration;
+            this.hour = hour;
+            this.minute = minute;
 
   },
   methods:{
